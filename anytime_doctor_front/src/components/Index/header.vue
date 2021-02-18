@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="mainbtn1">
-            <a href="join.html"><button type="button" class="btn btn-lg joinbtn">Join</button></a>
+            <a href="register"><button type="button" class="btn btn-lg joinbtn">Join</button></a>
           </div>
         </div>
         <div class="col-md-6">

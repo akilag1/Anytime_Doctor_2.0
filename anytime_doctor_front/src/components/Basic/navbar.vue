@@ -20,6 +20,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="howthiswork.html">How this works</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="howthiswork.html"><slot></slot></a>
+                </li>
               </ul>
             </div>
           </nav>
