@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="signup log-form"> 
-        <form action="" class="formsign">
+        <form action="#" class="formsign">
             <div class="form-group formitem">
             <label for="name">Email</label>
             <input type="text" class="form-control" id="name">
@@ -17,7 +17,7 @@
       <a href="#">Forgot your password</a></br>
     </div>
     <div class="dnthvacc">
-      <a href="join.html">Don't have an account? Click here to join us</a>
+      <a href="#">Don't have an account? Click here to join us</a>
     </div>
 </div>    
 </template>
