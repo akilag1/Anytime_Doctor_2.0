@@ -40,6 +40,7 @@ export default {
             contact:"",
             pword:"",
             cpword:"",
+            j:0
         }
     },
     methods:{
@@ -52,20 +53,25 @@ export default {
         sendPost:function(){
             if(this.pword==this.cpword)
             {
+                this.j=0;
                 this.$http.get('http://localhost:8000/accounts/users/')
                 .then(response => {
                     this.users = response.body;
                     console.log(this.users);
+
                 for(var i=0;i<this.users.length;i++){
                     if(this.users[i].email==this.email)
                     {
                         console.log("Already Exist");
+                        this.j=1;
                     }
                 }
                 })
-                console.log("inside");
-                const postData={username:this.fname,first_name:this.fname,last_name:this.lname,email:this.email,password:this.cpword};
-                this.$http.post("http://localhost:8000/accounts/users/", postData);
+                if(this.j==0){
+                    console.log("inside");
+                    const postData={username:this.fname,first_name:this.fname,last_name:this.lname,email:this.email,password:this.cpword};
+                    this.$http.post("http://localhost:8000/accounts/users/", postData);
+                }
 
                 this.$http.get('http://localhost:8000/accounts/users/')
                 .then(response => {

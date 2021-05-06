@@ -33,13 +33,15 @@ ALLOWED_HOSTS = []
 CORS_ORIGIN_ALLOW_ALL=True
 
 INSTALLED_APPS = [
-    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts.apps.AccountsConfig',
+    'doctors.apps.DoctorsConfig',
+    'hospitals.apps.HospitalsConfig',
     'rest_framework',
     'corsheaders',
 ]
