@@ -4,17 +4,17 @@
         <form action="#" class="formsign">
             <div class="form-group formitem">
             <label for="name">Email</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" id="name" v-model="email">
             </div>
             <div class="form-group formitem lastman">
             <label for="lname">Password</label>
-            <input type="text" class="form-control" id="lname">
+            <input type="text" class="form-control" id="lname" v-model="pass">
             </div>
-            <button class="btn btn-block joinformbtn" type="submit">Login</button>
+            <button class="btn btn-block joinformbtn" @submit.prevent="checkId()">Login</button>
         </form> 
     </div>  
     <div class="forgo-pass">
-      <a href="#">Forgot your password</a></br>
+      <a href="#">Forgot your password</a><br/>
     </div>
     <div class="dnthvacc">
       <a href="#">Don't have an account? Click here to join us</a>
@@ -23,7 +23,28 @@
 </template>
 <script>
 export default {
-    
+    data:function(){
+        return{
+            email:"",
+            pass:"",
+            users:[]
+        }
+    },
+    methods:{
+        checkId:function(){
+            this.$http.get('http://localhost:8000/accounts/users/')
+                .then(response => {
+                    this.users = response.body;
+                })
+            if(this.email in this.users)
+                {
+                    console.log("Exist");
+                }  
+            else{
+                console.log("not exist");
+            }     
+        }
+    }
 }
 </script>
 <style>

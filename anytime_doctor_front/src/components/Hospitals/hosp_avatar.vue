@@ -1,10 +1,11 @@
 <template>
  <section class="testimonials text-center bg-light testMnial">
     <div class="row">
-        <div class="col-lg-4 docitem">
+      {{ this.fetchData() }}
+        <div class="col-lg-4 docitem" v-for="hospital in hospitals" :key="hospital.id">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-            <img class="img-fluid rounded-circle mb-3" src="../../assets/img/Pic15.jpg" alt="">
-            <h5>Hospital 1</h5>
+            <img class="img-fluid rounded-circle mb-3" :src=hospital.picture alt="">
+            <h5>{{hospital.name}}</h5>
             <div class="availbledoc">
                 <a href="">Book Test</a>
             </div>
@@ -15,7 +16,19 @@
 </template>
 <script>
 export default {
-  
+  data:function(){
+    return{
+      hospitals:[]
+    }
+  },
+  methods:{
+       fetchData:function(){
+            this.$http.get('http://localhost:8000/hospitals/hospitals/')
+                .then(response => {
+                    this.hospitals = response.body;
+                })
+        }
+    }
 }
 </script>
 <style>
