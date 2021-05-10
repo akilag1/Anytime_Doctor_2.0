@@ -35,6 +35,12 @@ module.exports = {
         template: 'public/index.html',
         title: 'Dashboard',
         chunks: [ 'chunk-vendors', 'chunk-common', 'dashboard' ]
-      }
+      },
+      'online_doctors': {
+        entry: './src/pages/online_doctors/main.js',
+        template: 'public/index.html',
+        title: 'Online_Doctors',
+        chunks: [ 'chunk-vendors', 'chunk-common', 'online_doctors' ]
+      },
     }
   }

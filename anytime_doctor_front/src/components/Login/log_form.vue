@@ -10,7 +10,7 @@
             <label for="lname">Password</label>
             <input type="text" class="form-control" id="lname" v-model="pass">
             </div>
-            <button class="btn btn-block joinformbtn" @submit.prevent="checkId()">Login</button>
+            <button class="btn btn-block joinformbtn" @click="checkId()">Login</button>
         </form> 
     </div>  
     <div class="forgo-pass">
@@ -30,20 +30,43 @@ export default {
             users:[]
         }
     },
-    methods:{
-        checkId:function(){
-            this.$http.get('http://localhost:8000/accounts/users/')
+    created(){
+            // console.log("Created");
+             this.$http.get('http://localhost:8000/accounts/users/')
                 .then(response => {
                     this.users = response.body;
                 })
-            if(this.email in this.users)
-                {
-                    console.log("Exist");
-                }  
-            else{
-                console.log("not exist");
-            }     
-        }
+        },
+    methods:{
+        checkId:function(){
+            for(var i=0;i<this.users.length;i++){
+                if(this.users[i].email==this.email){
+                    if(this.users[i].password==this.pass)
+                    {
+                        console.log("In");
+                    }
+                    else{
+                        console.log("Incorrect Password")
+                    }
+                }
+            }
+            console.log("User not found!");
+            setTimeout(function(){
+               console.log("User not found!"); 
+               window.location.href = 'http://localhost:8080/login';
+            },2000)
+            // this.$http.get('http://localhost:8000/accounts/users/')
+            //     .then(response => {
+            //         this.users = response.body;
+            //     })
+        },
+            // if(this.email in this.users)
+            //     {
+            //         console.log("Exist");
+            //     }  
+            // else{
+            //     console.log("not exist");
+            // }     
     }
 }
 </script>
