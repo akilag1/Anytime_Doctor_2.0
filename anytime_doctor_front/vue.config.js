@@ -42,5 +42,23 @@ module.exports = {
         title: 'Online_Doctors',
         chunks: [ 'chunk-vendors', 'chunk-common', 'online_doctors' ]
       },
+      'available_doctors': {
+        entry: './src/pages/available_doctors/main.js',
+        template: 'public/index.html',
+        title: 'Available_Doctors',
+        chunks: [ 'chunk-vendors', 'chunk-common', 'available_doctors' ]
+      },
+      'doctor_appointment': {
+        entry: './src/pages/doctor_appointment/main.js',
+        template: 'public/index.html',
+        title: 'Doctor_Appointment',
+        chunks: [ 'chunk-vendors', 'chunk-common', 'doctor_appointment' ]
+      },
+      'test_appointment': {
+        entry: './src/pages/test_appointment/main.js',
+        template: 'public/index.html',
+        title: 'Test_Appointment',
+        chunks: [ 'chunk-vendors', 'chunk-common', 'test_appointment' ]
+      },
     }
   }

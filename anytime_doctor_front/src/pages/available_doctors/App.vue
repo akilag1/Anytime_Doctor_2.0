@@ -2,7 +2,7 @@
   <div id="app">
      <navbar></navbar>
      <search></search>
-     <online_doc></online_doc>
+     <available_doc></available_doc>
      <footer_main></footer_main>
   </div>
 </template>
@@ -11,14 +11,14 @@
 import navbar from "../../components/Basic/navbar.vue";
 import footer from "../../components/Basic/footer.vue";
 import search from "../../components/Basic/search.vue";
-import online_doc from '../../components/Doctors/online_doc.vue';
+import available_doc from "../../components/Doctors/available_doc.vue";
 
 export default {
     components:{
     "navbar":navbar,
     "footer_main":footer,
     "search":search,
-    "online_doc":online_doc
+    "available_doc":available_doc
   }
 }
 </script>
