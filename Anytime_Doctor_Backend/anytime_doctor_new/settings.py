@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'doctors.apps.DoctorsConfig',
     'hospitals.apps.HospitalsConfig',
+    'appotests.apps.AppotestsConfig',
     'rest_framework',
     'corsheaders',
 ]

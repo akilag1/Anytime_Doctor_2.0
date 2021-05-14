@@ -60,5 +60,17 @@ module.exports = {
         title: 'Test_Appointment',
         chunks: [ 'chunk-vendors', 'chunk-common', 'test_appointment' ]
       },
+      'doctor_profile': {
+        entry: './src/pages/doctor_profile/main.js',
+        template: 'public/index.html',
+        title: 'Doctor_Profile',
+        chunks: [ 'chunk-vendors', 'chunk-common', 'doctor_profile' ]
+      },
+      'hospitals/hospital_profile': {
+        entry: './src/pages/hospital_profile/main.js',
+        template: 'public/index.html',
+        title: 'Hospital_Profile',
+        chunks: [ 'chunk-vendors', 'chunk-common', 'hospitals/hospital_profile' ]
+      },
     }
   }

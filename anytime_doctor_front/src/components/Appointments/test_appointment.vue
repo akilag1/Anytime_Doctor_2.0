@@ -33,6 +33,8 @@ export default {
 }
 .confirmapp_btn{
     text-align: center;
-    margin-right: 1.5rem;
+}
+.confirmapp_btn button{
+     margin-right: 1.5rem;
 }
 </style>
