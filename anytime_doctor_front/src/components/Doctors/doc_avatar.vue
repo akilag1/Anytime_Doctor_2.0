@@ -5,7 +5,7 @@
         <div class="col-lg-4 docitem" v-for="doctor in doctors" :key="doctor.id">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" :src=doctor.picture alt="">
-            <h5>{{doctor.name}}</h5>
+            <a href=""><h5>{{doctor.name}}</h5></a>
             <p class="font-weight-light mb-0 docpanelsubtext">{{doctor.description}}</p>
           </div>
         </div>
@@ -13,6 +13,9 @@
  </section>      
 </template>
 <script>
+
+import { eventBus } from "../../pages/doctors/main"
+
 export default {
     data:function(){
         return{
