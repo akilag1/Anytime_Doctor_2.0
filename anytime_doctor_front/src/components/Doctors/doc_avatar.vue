@@ -1,11 +1,12 @@
 <template>
  <section class="testimonials text-center bg-light testMnial">
     <div class="row">
-      {{ this.fetchData() }}
+      <!-- {{ this.fetchData() }} -->
         <div class="col-lg-4 docitem" v-for="doctor in doctors" :key="doctor.id">
+          <!-- {{this.i=this.i+1}} -->
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" :src=doctor.picture alt="">
-            <a href=""><h5>{{doctor.name}}</h5></a>
+            <a href="#" @click="sendDoc()"><h5>{{doctor.name}}</h5></a>
             <p class="font-weight-light mb-0 docpanelsubtext">{{doctor.description}}</p>
           </div>
         </div>
@@ -14,21 +15,31 @@
 </template>
 <script>
 
-import { eventBus } from "../../pages/doctors/main"
+// import { eventBus } from "../../pages/doctors/main"
 
 export default {
     data:function(){
         return{
+          // i:0,
           doctors:[]
         }   
     },
     methods:{
-       fetchData:function(){
-            this.$http.get('http://localhost:8000/doctors/doctors/')
+      //  fetchData:function(){
+      //       this.$http.get('http://localhost:8000/doctors/doctors/')
+      //           .then(response => {
+      //               this.doctors = response.body;
+      //           })
+      //   },
+        sendDoc:function(){
+            console.log(this.$store.state.i++)
+        }
+    },
+    created(){
+      this.$http.get('http://localhost:8000/doctors/doctors/')
                 .then(response => {
                     this.doctors = response.body;
                 })
-        }
     }
 }
 </script>

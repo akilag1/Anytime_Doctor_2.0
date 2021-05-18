@@ -10,11 +10,11 @@
               <ul>
                 <div class="docfact_li">
                   <li>Name</li>
-                  <p></p>
+                  <p>{{  }}</p>
                 </div>
                 <div class="docfact_li">
                   <li>Speciality</li>
-                  <p>}</p>
+                  <p></p>
                 </div>
                 <div class="docfact_li">
                   <li>Hospital</li>
@@ -39,11 +39,27 @@
     </div>
    </div> 
 </template>
+
 <script>
+
+// import { eventBus } from "../../pages/doctors/main"
+
 export default {
-    
+    data:function(){
+      return{
+        docDetails:[]
+      }
+    },
+    // created(){
+    //   console.log("Created");
+    //   eventBus.$on("sendDoc", (doctors)=>{
+    //     this.docDetails = doctors;
+    //     console.log("why now");
+    //   })
+    // }   
 }
 </script>
+
 <style>
 #pic img{
     width: 100%;

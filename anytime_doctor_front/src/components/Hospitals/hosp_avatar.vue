@@ -1,7 +1,7 @@
 <template>
  <section class="testimonials text-center bg-light testMnial">
     <div class="row">
-      {{ this.fetchData() }}
+      <!-- {{ this.fetchData() }} -->
         <div class="col-lg-4 docitem" v-for="hospital in hospitals" :key="hospital.id">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" :src=hospital.picture alt="">
@@ -23,11 +23,17 @@ export default {
   },
   methods:{
        fetchData:function(){
-            this.$http.get('http://localhost:8000/hospitals/hospitals/')
+            // this.$http.get('http://localhost:8000/hospitals/hospitals/')
+            //     .then(response => {
+            //         this.hospitals = response.body;
+            //     })
+        }
+    },
+    created(){
+      this.$http.get('http://localhost:8000/hospitals/hospitals/')
                 .then(response => {
                     this.hospitals = response.body;
                 })
-        }
     }
 }
 </script>
