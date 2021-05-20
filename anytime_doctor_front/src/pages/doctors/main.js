@@ -11,6 +11,9 @@ Vue.use(VueResource);
 // export const eventBus = new Vue();
 
 new Vue({
+  el:'#app',
   store:store,
   render: h => h(App),
-}).$mount('#app')
+})
+
+// .$mount('#app')

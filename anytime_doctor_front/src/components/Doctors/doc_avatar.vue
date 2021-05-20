@@ -32,7 +32,8 @@ export default {
       //           })
       //   },
         sendDoc:function(){
-            console.log(this.$store.state.i++)
+            this.$store.state.i++;
+            console.log(this.$store.state.i);
         }
     },
     created(){

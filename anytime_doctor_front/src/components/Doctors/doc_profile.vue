@@ -6,11 +6,12 @@
           <img src="#" alt="">
       </section>
       <section id="facts" class="col-md-8">
+        <button @click="showNum()">Click</button>
           <div class="docfacts">
               <ul>
                 <div class="docfact_li">
                   <li>Name</li>
-                  <p>{{  }}</p>
+                  <p>{{ count }}</p>
                 </div>
                 <div class="docfact_li">
                   <li>Speciality</li>
@@ -43,13 +44,23 @@
 <script>
 
 // import { eventBus } from "../../pages/doctors/main"
+import {store} from "../../store/store"
 
 export default {
     data:function(){
       return{
-        docDetails:[]
       }
     },
+    methods: {
+      showNum: function(){
+        console.log(store.state.i);
+      }
+    },
+    computed:{
+      count(){
+        return store.state.i;
+      }
+    }
     // created(){
     //   console.log("Created");
     //   eventBus.$on("sendDoc", (doctors)=>{

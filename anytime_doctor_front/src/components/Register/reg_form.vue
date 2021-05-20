@@ -40,7 +40,7 @@ export default {
             contact:"",
             pword:"",
             cpword:"",
-            j:0
+            j:0,
         }
     },
     methods:{
@@ -54,10 +54,10 @@ export default {
             if(this.pword==this.cpword)
             {
                 this.j=0;
-                this.$http.get('http://localhost:8000/accounts/users/')
-                .then(response => {
-                    this.users = response.body;
-                    console.log(this.users);
+                // this.$http.get('http://localhost:8000/accounts/users/')
+                // .then(response => {
+                //     this.users = response.body;
+                    // console.log(this.users);
 
                 for(var i=0;i<this.users.length;i++){
                     if(this.users[i].email==this.email)
@@ -66,30 +66,51 @@ export default {
                         this.j=1;
                     }
                 }
-                })
+                // })
                 if(this.j==0){
                     console.log("inside");
                     const postData={username:this.fname,first_name:this.fname,last_name:this.lname,email:this.email,password:this.cpword};
                     this.$http.post("http://localhost:8000/accounts/users/", postData);
-                }
 
-                this.$http.get('http://localhost:8000/accounts/users/')
-                .then(response => {
+                    this.$http.get('http://localhost:8000/accounts/users/')
+                         .then(response => {
                     this.users = response.body;
                     console.log(this.users);
-                })
+                    })
 
-                const postDataEx={user:this.users[3],contact_no:this.contact};
-                this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx)
-                .then(res=>{
-                     console.log(res.body);
-                })
+                    // const postDataEx={user:this.fname,contact_no:this.contact};
+                    // this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
+                }
+
+                if(this.j==0){
+                    const postDataEx={user:"http://localhost:8000/accounts/users/21",contact_no:this.contact};
+                    this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
+                }
+
+                // this.$http.get('http://localhost:8000/accounts/users/')
+                // .then(response => {
+                //     this.users = response.body;
+                //     console.log(this.users);
+                // })
+
+                // const postDataEx={user:this.users[3],contact_no:this.contact};
+                // this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx)
+                // .then(res=>{
+                //      console.log(res.body);
+                // })
             }
             else{
                 console.log("Re-enter Password");
             }
         }
-    }       
+    },
+    created(){
+        this.$http.get('http://localhost:8000/accounts/users/')
+                .then(response => {
+                    this.users = response.body;
+            }  
+                )}   
+
 }
 </script>
 <style>
