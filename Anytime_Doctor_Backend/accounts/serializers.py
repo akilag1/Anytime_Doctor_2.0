@@ -6,9 +6,9 @@ from .models import UserExtra
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password')
+        fields = ('id' ,'username', 'first_name', 'last_name', 'email', 'password')
     
-class UserExSerializer(serializers.HyperlinkedModelSerializer):
+class UserExSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserExtra
         fields = ('user','contact_no')

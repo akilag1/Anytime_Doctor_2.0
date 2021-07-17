@@ -3,27 +3,27 @@
      <!-- pic and facts -->
     <div class="row" id="picfacts">
       <section id="pic" class="col-md-4">
-          <img src="#" alt="">
+          <img ::src="doctors[doc_id-1].picture" alt="">
       </section>
       <section id="facts" class="col-md-8">
-        <button @click="showNum()">Click</button>
+        <!-- <button @click="showNum()">Click</button> -->
           <div class="docfacts">
               <ul>
                 <div class="docfact_li">
                   <li>Name</li>
-                  <p>{{ count }}</p>
+                  <p>{{this.doctors[doc_id-1].name}}</p>
                 </div>
                 <div class="docfact_li">
                   <li>Speciality</li>
-                  <p></p>
+                  <p>{{this.doctors[doc_id-1].speciality}}</p>
                 </div>
                 <div class="docfact_li">
                   <li>Hospital</li>
-                  <p></p>
+                  <p>{{this.doctors[doc_id-1].hospital}}</p>
                 </div>
                 <div class="docfact_li">
                   <li>Email </li>
-                  <p></p>
+                  <p>{{this.doctors[doc_id-1].email}}</p>
                 </div>
               </ul>              
           </div>
@@ -44,30 +44,31 @@
 <script>
 
 // import { eventBus } from "../../pages/doctors/main"
-import {store} from "../../store/store"
+// import {store} from "../../store/store"
 
 export default {
     data:function(){
       return{
+        doctors:[],
+        doc_id:window.location.pathname.split('/')[2]
       }
     },
     methods: {
-      showNum: function(){
-        console.log(store.state.i);
-      }
+      // showNum: function(){
+      //   console.log(store.state.i);
+      // }
     },
-    computed:{
-      count(){
-        return store.state.i;
-      }
-    }
-    // created(){
-    //   console.log("Created");
-    //   eventBus.$on("sendDoc", (doctors)=>{
-    //     this.docDetails = doctors;
-    //     console.log("why now");
-    //   })
-    // }   
+    // computed:{
+    //   count(){
+    //     return this.$store.state.i;
+    //   }
+    // }
+    created(){
+       this.$http.get('http://localhost:8000/doctors/doctors/')
+                .then(response => {
+                    this.doctors = response.body;
+                })
+    }   
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
 <section class="search-sec">
         <div class="container">
+            <!-- <h1>{{ count }}</h1> -->
             <form action="#" method="post" novalidate="novalidate">
                 <div class="row">
                     <div class="col-lg-12">
@@ -33,7 +34,11 @@
 </template>
 <script>
 export default {
-    
+    // computed:{
+    //     count(){
+    //         return this.$store.state.i;
+    //     }
+    // }
 }
 </script>
 <style>

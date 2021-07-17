@@ -6,7 +6,7 @@
           <!-- {{this.i=this.i+1}} -->
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" :src=doctor.picture alt="">
-            <a href="#" @click="sendDoc()"><h5>{{doctor.name}}</h5></a>
+            <a :href="`doctor_profile/${doctor.id}`"><h5>{{doctor.name}}</h5></a>
             <p class="font-weight-light mb-0 docpanelsubtext">{{doctor.description}}</p>
           </div>
         </div>
@@ -16,12 +16,13 @@
 <script>
 
 // import { eventBus } from "../../pages/doctors/main"
+// import {store} from "../../store/store"
 
 export default {
     data:function(){
         return{
           // i:0,
-          doctors:[]
+          doctors:[],
         }   
     },
     methods:{
@@ -32,8 +33,11 @@ export default {
       //           })
       //   },
         sendDoc:function(){
-            this.$store.state.i++;
-            console.log(this.$store.state.i);
+            // this.$store.state.i++;
+            // window.location.href="doctor_profile";
+            // const urlParams = new URLSearchParams(window.location.search);
+            // urlParams.set('doc_id', this.doctors[1].id);
+            // window.location.search = urlParams;
         }
     },
     created(){

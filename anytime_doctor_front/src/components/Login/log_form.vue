@@ -43,7 +43,7 @@ export default {
                 if(this.users[i].email==this.email){
                     if(this.users[i].password==this.pass)
                     {
-                        console.log("In");
+                        window.location.href="http://localhost:8080"
                     }
                     else{
                         console.log("Incorrect Password")
@@ -54,7 +54,7 @@ export default {
             setTimeout(function(){
                console.log("User not found!"); 
                window.location.href = 'http://localhost:8080/login';
-            },2000)
+            },4000)
             // this.$http.get('http://localhost:8000/accounts/users/')
             //     .then(response => {
             //         this.users = response.body;
