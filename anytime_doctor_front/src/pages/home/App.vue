@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <navbar></navbar>
+    <navbar>
+      <a slot="slot1">Hospitals</a>
+    </navbar>
     <header_main></header_main>
     <docpanel></docpanel>
     <services></services>
@@ -25,7 +27,7 @@ export default {
     "services":services,
     "subscribe":subscribe,
     "footer_main":footer,
-  }
+  },
 }
 </script>
 

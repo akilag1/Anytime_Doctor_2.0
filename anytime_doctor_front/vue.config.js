@@ -3,7 +3,7 @@ module.exports = {
       'index': {
         entry: './src/pages/home/main.js',
         template: 'public/index.html',
-        title: 'Home',
+        title: 'Anytime Doctor',
         chunks: [ 'chunk-vendors', 'chunk-common', 'index' ]
       },
       'register': {

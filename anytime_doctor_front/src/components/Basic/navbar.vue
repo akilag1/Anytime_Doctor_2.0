@@ -15,13 +15,16 @@
                   <a class="nav-link" href="#">Doctors</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link slot_link" href="howthiswork.html"><slot name="slot1"></slot></a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="#">Services</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="howthiswork.html">How this works</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="howthiswork.html"><slot></slot></a>
+                  <a class="nav-link" href="howthiswork.html"><slot name="slot2"></slot></a>
                 </li>
               </ul>
             </div>
@@ -78,5 +81,8 @@ h5,
 h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
+}
+.slot_link{
+  text-decoration: none !important;
 }
 </style>
