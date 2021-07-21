@@ -1,14 +1,14 @@
 <template>
   <section class="testimonials text-center bg-light testMnial">
     <div class="container">
-      <h2 class="mb-5 docpaneltext">People who here to help You..</h2>
+      <h2 class="mb-5 docpaneltext">Places available to take care of you..</h2>
       <div class="row">
-        {{this.docList()}}
-        <div class="col-lg-4" v-for="doctor in dcList" :key="doctor.id">
+        {{this.hospList()}}
+        <div class="col-lg-4" v-for="hospital in hcList" :key="hospital.id">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-            <img class="img-fluid rounded-circle mb-3" :src="doctor.picture" alt="">
-            <a :href="`doctor_profile/${doctor.id}`"><h5>{{doctor.name}}</h5></a>
-            <p class="font-weight-light mb-0 docpanelsubtext">{{doctor.speciality}}</p>
+            <img class="img-fluid rounded-circle mb-3" :src="hospital.picture" alt="">
+            <a :href="`hospital_profile/${hospital.id}`"><h5>{{hospital.name}}</h5></a>
+            <p class="font-weight-light mb-0 docpanelsubtext">{{hospital.location}}</p>
           </div>
         </div>
       </div>
@@ -24,21 +24,21 @@
 export default {
      data:function(){
        return{
-        doctors:[],
-        dcList:[]
+        hospitals:[],
+        hcList:[]
        }
      },
      methods:{
-       docList(){
+       hospList(){
          for(let i=0;i<3;i++){
-           this.dcList[i]=this.doctors[i];
+           this.hcList[i]=this.hospitals[i];
          }
        }
      },
      created(){
-      this.$http.get('http://localhost:8000/doctors/doctors/')
+      this.$http.get('http://localhost:8000/hospitals/hospitals/')
                 .then(response => {
-                    this.doctors = response.body;
+                    this.hospitals = response.body;
                 })
     }
 }
@@ -66,7 +66,7 @@ export default {
 /* Doctor_Bar */
 
 .testMnial{
-    padding-top: 4rem;
+    padding-top: 0 !important;
     padding-bottom: 5rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -80,7 +80,7 @@ export default {
     font-size: 1rem;
 }
 .testimonials {
-  padding-top: 7rem;
+  /* padding-top: 7rem; */
   padding-bottom: 7rem;
 }
 

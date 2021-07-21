@@ -21,7 +21,7 @@
                   <a class="nav-link" href="#">Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="howthiswork.html">How this works</a>
+                  <a class="nav-link" href="howthiswork.html">About Us</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="howthiswork.html"><slot name="slot2"></slot></a>
@@ -81,8 +81,5 @@ h5,
 h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
-}
-.slot_link{
-  text-decoration: none !important;
 }
 </style>

@@ -39,7 +39,7 @@ export default {
 .joinbtn{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 200;
+    font-weight: 450;
     width: 6rem;
     background-color: rgb(236, 118, 15);
     text-align: center;
@@ -47,16 +47,20 @@ export default {
 .joinbtn:hover{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 200;
+    font-weight: 450;
     width: 6rem;
     background-color: rgb(236, 138, 52);
     text-align: center;
 }
 .signinbtn{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 200;
+    font-weight: 450;
     width: 6rem;
     text-align: center;
+}
+.maintext{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(250, 250, 250);
 }
 header.masthead {
   position: relative;
