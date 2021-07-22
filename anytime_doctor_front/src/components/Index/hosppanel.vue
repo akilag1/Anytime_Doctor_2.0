@@ -1,5 +1,5 @@
 <template>
-  <section class="testimonials text-center bg-light testMnial">
+  <section class="testimonials bg-light text-center testMnial">
     <div class="container">
       <h2 class="mb-5 docpaneltext">Places available to take care of you..</h2>
       <div class="row">
@@ -15,7 +15,7 @@
         <!-- viewmore -->
 
       <div class="docpanelviewmore">
-          <a href="doctors.html"><button btn btn-lg>See All <i class="fas fa-arrow-circle-right"></i></button></a>
+          <a href="hospitals"><button btn btn-lg>See All <i class="fas fa-arrow-circle-right"></i></button></a>
       </div>
     </div>
   </section>
@@ -66,9 +66,10 @@ export default {
 /* Doctor_Bar */
 
 .testMnial{
-    padding-top: 0 !important;
+    padding-top: 0;
     padding-bottom: 5rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: rgb(248, 171, 103); */
 }
 .docpaneltext{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -80,6 +81,7 @@ export default {
     font-size: 1rem;
 }
 .testimonials {
+  /* background-color: rgb(212, 183, 169);; */
   /* padding-top: 7rem; */
   padding-bottom: 7rem;
 }

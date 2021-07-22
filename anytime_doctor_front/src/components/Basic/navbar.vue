@@ -8,23 +8,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                  <slot name="slot1" class="nav-link"></slot>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Doctors</a>
+                  <slot name="slot2" class="nav-link"></slot>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link slot_link" href="howthiswork.html"><slot name="slot1"></slot></a>
+                  <slot name="slot3" class="nav-link"></slot>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Services</a>
+                  <slot name="slot4" class="nav-link"></slot>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="howthiswork.html">About Us</a>
+                  <slot name="slot5" class="nav-link"></slot>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="howthiswork.html"><slot name="slot2"></slot></a>
+                  <slot name="slot6" class="nav-link"></slot>
                 </li>
               </ul>
             </div>

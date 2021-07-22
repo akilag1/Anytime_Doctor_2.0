@@ -66,11 +66,11 @@ module.exports = {
         title: 'Doctor_Profile',
         chunks: [ 'chunk-vendors', 'chunk-common', 'doctor_profile' ]
       },
-      'hospitals/hospital_profile': {
+      'hospital_profile': {
         entry: './src/pages/hospital_profile/main.js',
         template: 'public/index.html',
         title: 'Hospital_Profile',
-        chunks: [ 'chunk-vendors', 'chunk-common', 'hospitals/hospital_profile' ]
+        chunks: [ 'chunk-vendors', 'chunk-common', 'hospital_profile' ]
       },
     }
   }

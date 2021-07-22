@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <navbar>
-      <slot slot="slot1">Hospitals</slot>
+    <navbar id="navbr">
+      <slot slot="slot1"><a href="#app" class="nav-link" v-smooth-scroll>Home</a></slot>
+      <slot slot="slot2"><a href="#docpanel" class="nav-link" v-smooth-scroll={offset:-50}>Doctors</a></slot>
+      <slot slot="slot3"><a href="#hosppanel" class="nav-link" v-smooth-scroll={offset:-150}>Hospitals</a></slot>
+      <slot slot="slot4"><a href="#services" class="nav-link" v-smooth-scroll={offset:-50}>Services</a></slot>
     </navbar>
     <header_main></header_main>
-    <docpanel></docpanel>
-    <hosppanel></hosppanel>
-    <services></services>
+    <docpanel id="docpanel"></docpanel>
+    <hosppanel id="hosppanel"></hosppanel>
+    <services id="services"></services>
     <footer_main></footer_main>
   </div>
 </template>
@@ -34,5 +37,7 @@ export default {
 </script>
 
 <style>
-
+body{
+  
+}
 </style>

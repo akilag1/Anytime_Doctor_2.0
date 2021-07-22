@@ -1,5 +1,5 @@
 <template>
-  <section class="testimonials text-center bg-light testMnial">
+  <section class="testimonials text-center bg-light testMnil">
     <div class="container">
       <h2 class="mb-5 docpaneltext">People who here to help You..</h2>
       <div class="row">
@@ -44,6 +44,11 @@ export default {
 }
 </script>
 <style>
+.testMnil{
+    padding-top: 4rem;
+    padding-bottom: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .docpanelviewmore{
     display: flex;
     justify-content: flex-end;
@@ -58,6 +63,7 @@ export default {
     padding-right: 0;
     margin-right: -2rem;
     margin-bottom: -2rem;
+    border-radius: 5px;
 }
 .docpanelviewmore button:hover{
     background-color: rgb(236, 138, 52);
@@ -65,11 +71,6 @@ export default {
 
 /* Doctor_Bar */
 
-.testMnial{
-    padding-top: 4rem;
-    padding-bottom: 5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 .docpaneltext{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(243, 121, 14);
