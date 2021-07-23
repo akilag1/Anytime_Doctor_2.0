@@ -1,7 +1,10 @@
 <template>
   <div id="app">
      <doc_profile v-show="false"></doc_profile>
-     <navbar></navbar>
+     <navbar>
+      <slot slot="slot1"><a href="index" class="nav-link">Home</a></slot>
+      <slot slot="slot2"><a href="hospitals" class="nav-link">Hospitals</a></slot>
+     </navbar>
      <search></search>
      <doc_avatar></doc_avatar>
      <footer_main></footer_main>

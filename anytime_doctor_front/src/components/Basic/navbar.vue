@@ -44,6 +44,7 @@ export default {
     position: sticky;
     top: 0;
     z-index: 1;
+    /* width:100%; */
 }
 .myNavbar{
     background-color: #fad487;

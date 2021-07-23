@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-     <navbar></navbar>
+     <navbar>
+      <slot slot="slot1"><a href="index" class="nav-link">Home</a></slot>
+      <slot slot="slot2"><a href="doctors" class="nav-link">Doctors</a></slot>
+      <slot slot="slot3"><a href="hospitals" class="nav-link">Hospitals</a></slot>
+     </navbar>
      <div class="maincontent">
         <h1>Welcome</h1>
     </div>

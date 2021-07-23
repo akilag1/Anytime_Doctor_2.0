@@ -17,7 +17,7 @@
       <a href="#">Forgot your password</a><br/>
     </div>
     <div class="dnthvacc">
-      <a href="#">Don't have an account? Click here to join us</a>
+      <a href="register">Don't have an account? Click here to join us</a>
     </div>
 </div>    
 </template>

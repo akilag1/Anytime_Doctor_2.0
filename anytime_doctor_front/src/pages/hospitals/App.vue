@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-     <navbar></navbar>
+     <navbar>
+      <slot slot="slot1"><a href="index" class="nav-link">Home</a></slot>
+      <slot slot="slot2"><a href="doctors" class="nav-link">Doctors</a></slot>
+     </navbar>
      <search></search>
      <hosp_avatar></hosp_avatar>
      <footer_main></footer_main>

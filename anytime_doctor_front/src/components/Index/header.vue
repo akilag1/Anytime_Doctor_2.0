@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-6">
           <div class="mainbtn2">
-            <a href="login"><button type="button" class="btn btn-primary btn-lg signinbtn">SignIn</button></a>
+            <a href="login"><button type="button" class="btn btn-primary btn-lg signinbtn">Sign In</button></a>
           </div>  
         </div>
       </div>

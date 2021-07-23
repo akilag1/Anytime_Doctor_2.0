@@ -19,14 +19,17 @@
             </div>
             <div class="form-group formitem">
             <label for="pword">Password</label>
-            <input type="text" class="form-control" id="pword" v-model="pword" required>
+            <input type="password" class="form-control" id="pword" v-model="pword" required>
             </div>
             <div class="form-group formitem lastman">
               <label for="cpword">Confirm Password</label>
-              <input type="text" class="form-control" id="cpword" v-model="cpword" required>
+              <input type="password" class="form-control" id="cpword" v-model="cpword" required>
             </div>
             <button class="btn btn-block joinformbtn" @click="sendPost()">Join</button>
         </form> 
+        <div class="ar_mem">
+            <a href="login">Already a member? Sign In</a>
+        </div>
     </div> 
 </template>
 <script>
@@ -44,21 +47,10 @@ export default {
         }
     },
     methods:{
-        // fetchData:function(){
-        //     this.$http.get('http://localhost:8000/accounts/users/')
-        //         .then(response => {
-        //             this.users = response.body;
-        //         })
-        // }
         sendPost:function(){
             if(this.pword==this.cpword)
             {
                 this.j=0;
-                // this.$http.get('http://localhost:8000/accounts/users/')
-                // .then(response => {
-                //     this.users = response.body;
-                    // console.log(this.users);
-
                 for(var i=0;i<this.users.length;i++){
                     if(this.users[i].email==this.email)
                     {
@@ -66,42 +58,30 @@ export default {
                         this.j=1;
                     }
                 }
-                // })
                 if(this.j==0){
                     console.log("inside");
                     const postData={username:this.fname,first_name:this.fname,last_name:this.lname,email:this.email,password:this.cpword};
                     this.$http.post("http://localhost:8000/accounts/users/", postData);
 
-                    // this.$http.get('http://localhost:8000/accounts/users/')
-                    //     .then(response => {
-                    // this.users = response.body;
-                    // // console.log(this.users);
-                    //     })
+                    console.log(this.users[this.users.length]);
+                    console.log(this.users[this.users.length-1].id);
+                    console.log(this.users[this.users.length-1].id+1);
 
-                    const postDataEx={user:(this.users[this.users.length-1].id)+1,contact_no:this.contact};
+                    const postDataEx={user:(this.users[this.users.length-1].id+1),contact_no:this.contact};
                     this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
                 }
 
-                // if(this.j==0){
-                //     const postDataEx={user:22,contact_no:this.contact};
-                //     this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
-                // }
-
-                // this.$http.get('http://localhost:8000/accounts/users/')
-                // .then(response => {
-                //     this.users = response.body;
-                //     console.log(this.users);
-                // })
-
-                // const postDataEx={user:this.users[3],contact_no:this.contact};
-                // this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx)
-                // .then(res=>{
-                //      console.log(res.body);
-                // })
             }
             else{
                 console.log("Re-enter Password");
             }
+        },
+        getUsers(){
+            this.$http.get('http://localhost:8000/accounts/users/')
+                .then(response => {
+                    this.users = response.body;
+            }  
+                )
         }
     },
     created(){
@@ -150,5 +130,13 @@ export default {
 }
 .signup form .lastman{
     margin-bottom: 2rem;
+}
+.ar_mem{
+    margin-top: 1.5rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.4rem;
+    width: 20rem;
 }
 </style>
