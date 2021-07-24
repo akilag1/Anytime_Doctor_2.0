@@ -37,6 +37,7 @@ export default {
     data:function(){
         return{
             users:[],
+            reUser:[],
             fname:"",
             lname:"",
             email:"",
@@ -59,16 +60,22 @@ export default {
                     }
                 }
                 if(this.j==0){
-                    console.log("inside");
+                    console.log(console.log(this.users[this.users.length-1].id+1));
                     const postData={username:this.fname,first_name:this.fname,last_name:this.lname,email:this.email,password:this.cpword};
                     this.$http.post("http://localhost:8000/accounts/users/", postData);
 
-                    console.log(this.users[this.users.length]);
-                    console.log(this.users[this.users.length-1].id);
                     console.log(this.users[this.users.length-1].id+1);
 
-                    const postDataEx={user:(this.users[this.users.length-1].id+1),contact_no:this.contact};
-                    this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
+                    this.$http.get('http://localhost:8000/accounts/users/')
+                        .then(response => {
+                    this.users = response.body;
+            })
+
+                    console.log(this.users[this.users.length-1].id+1);
+                    this.getUsers();
+
+                    // const postDataEx={user:(this.reUser[this.reUser.length-1].id+1),contact_no:this.contact};
+                    // this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
                 }
 
             }
@@ -79,15 +86,21 @@ export default {
         getUsers(){
             this.$http.get('http://localhost:8000/accounts/users/')
                 .then(response => {
-                    this.users = response.body;
+                    this.reUser = response.body;
             }  
                 )
+
+            console.log(this.users[this.users.length-1].id+1);    
         }
     },
     created(){
         this.$http.get('http://localhost:8000/accounts/users/')
                 .then(response => {
                     this.users = response.body;
+            }),  
+        this.$http.get('http://localhost:8000/accounts/usersEx/')
+                .then(response => {
+                    this.reUser = response.body;
             }  
                 )}   
 
