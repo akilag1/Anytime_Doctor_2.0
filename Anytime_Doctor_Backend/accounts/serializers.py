@@ -23,12 +23,16 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             else:
                 setattr(instance, attr, value)
         instance.save()
-        return instance
+        return instance      
 
-    
 class UserExSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserExtra
         fields = ('id', 'user','contact_no')
         lookup_field = 'user'
 
+    def create(self, validated_data):
+        # password = validated_data.pop('password', None)
+        instance = self.Meta.model(**validated_data)
+        instance.save()
+        return instance

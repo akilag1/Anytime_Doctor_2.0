@@ -22,8 +22,8 @@
             <input type="password" class="form-control" id="pword" v-model="pword" required>
             </div>
             <div class="form-group formitem lastman">
-              <label for="cpword">Confirm Password</label>
-              <input type="password" class="form-control" id="cpword" v-model="cpword" required>
+                <label for="cpword">Confirm Password</label>
+                <input type="password" class="form-control" id="cpword" v-model="cpword" required>
             </div>
             <button class="btn btn-block joinformbtn" @click="sendPost()">Join</button>
         </form> 
@@ -60,22 +60,15 @@ export default {
                     }
                 }
                 if(this.j==0){
-                    console.log(console.log(this.users[this.users.length-1].id+1));
                     const postData={username:this.fname,first_name:this.fname,last_name:this.lname,email:this.email,password:this.cpword};
                     this.$http.post("http://localhost:8000/accounts/users/", postData);
 
-                    console.log(this.users[this.users.length-1].id+1);
+                    //chk id field in userExtra not user
 
-                    this.$http.get('http://localhost:8000/accounts/users/')
-                        .then(response => {
-                    this.users = response.body;
-            })
+                    const postDataEx={user:(this.users[this.users.length-1].id), contact_no:this.contact};
+                    this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
 
-                    console.log(this.users[this.users.length-1].id+1);
-                    this.getUsers();
-
-                    // const postDataEx={user:(this.reUser[this.reUser.length-1].id+1),contact_no:this.contact};
-                    // this.$http.post("http://localhost:8000/accounts/usersEx/", postDataEx);
+                    window.location.href="login?success";
                 }
 
             }
@@ -83,27 +76,13 @@ export default {
                 console.log("Re-enter Password");
             }
         },
-        getUsers(){
-            this.$http.get('http://localhost:8000/accounts/users/')
-                .then(response => {
-                    this.reUser = response.body;
-            }  
-                )
-
-            console.log(this.users[this.users.length-1].id+1);    
-        }
     },
     created(){
         this.$http.get('http://localhost:8000/accounts/users/')
                 .then(response => {
                     this.users = response.body;
-            }),  
-        this.$http.get('http://localhost:8000/accounts/usersEx/')
-                .then(response => {
-                    this.reUser = response.body;
-            }  
-                )}   
-
+            })
+    }
 }
 </script>
 <style>
@@ -143,6 +122,9 @@ export default {
 }
 .signup form .lastman{
     margin-bottom: 2rem;
+}
+.signup form .lastman input{
+    height:38px;
 }
 .ar_mem{
     margin-top: 1.5rem;

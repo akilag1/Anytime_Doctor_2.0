@@ -3,7 +3,7 @@
      <!-- pic and facts -->
     <div class="row" id="picfacts">
       <section id="pic" class="col-md-4">
-          <img ::src="doctors[doc_id-1].picture" alt="">
+          <img :src="doctors[doc_id-1].picture" alt="">
       </section>
       <section id="facts" class="col-md-8">
         <!-- <button @click="showNum()">Click</button> -->
@@ -19,7 +19,7 @@
                 </div>
                 <div class="docfact_li">
                   <li>Hospital</li>
-                  <p>{{this.doctors[doc_id-1].hospital}}</p>
+                  <p>{{this.hospitals[this.doctors[doc_id-1].hospital_id].name}}</p>
                 </div>
                 <div class="docfact_li">
                   <li>Email </li>
@@ -35,7 +35,7 @@
 
     <div class="row" id="description"> 
         <div class="col-md-12 descri">
-            <p></p>
+            <p>{{this.doctors[doc_id-1].description}}</p>
         </div>
     </div>
    </div> 
@@ -50,6 +50,7 @@ export default {
     data:function(){
       return{
         doctors:[],
+        hospitals:[],
         doc_id:window.location.pathname.split('/')[2]
       }
     },
@@ -67,7 +68,11 @@ export default {
        this.$http.get('http://localhost:8000/doctors/doctors/')
                 .then(response => {
                     this.doctors = response.body;
-                })
+                }),
+       this.$http.get('http://localhost:8000/hospitals/hospitals/')
+                .then(response => {
+                    this.hospitals = response.body;
+                })         
     }   
 }
 </script>
