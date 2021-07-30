@@ -1,4 +1,5 @@
 from django.db import models
+# from django import forms
 
 class hospital(models.Model):
     name=models.CharField(max_length=200)
@@ -13,5 +14,6 @@ class hospital(models.Model):
     ultra_sound=models.BooleanField(default=False)
     picture=models.ImageField(upload_to="photos/hospitals/")
     description=models.TextField(blank=True)
+    # password = forms.CharField(widget=forms.PasswordInput)
     def __str__(self):
         return self.name

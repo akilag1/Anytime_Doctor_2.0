@@ -1,5 +1,6 @@
 from django.db import models
 from hospitals.models import hospital
+# from django import forms
 
 class doctor(models.Model):
     name = models.CharField(max_length=200)
@@ -18,6 +19,7 @@ class doctor(models.Model):
     email=models.EmailField(max_length=200)
     picture=models.ImageField(upload_to="photos/hospitals/")
     description=models.TextField(blank=True)
+    # password = forms.CharField(widget=forms.PasswordInput)
     available_online=models.BooleanField(default=False)
     available_person=models.BooleanField(default=False)
     def __str__(self):
